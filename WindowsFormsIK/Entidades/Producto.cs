@@ -9,21 +9,20 @@ namespace WindowsFormsIK.Entidades
 {
     public class Producto
     {
-        
-    public string Nombre {get; set;}    
-    public string Descripcion {get; set;}
-    public string PrecioCosto {get; set;}
-    public double Margen {get;set; }
-    public double IVA {get;set;}
-    public decimal PrecioBruto{get;}
-    public decimal PrecioVenta{ get; set;}
-    public string Proveedor {get; set; }
-    public string Categoria{get;set; }
-    public string SubCategoria{get;set; }
 
-    //PrecioBruto = PrecioCosto+ Margen;
-    //PrecioVenta = PrecioBruto + IVA;
-     //Convert.ToDecimal(1 + this.IVA);
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public decimal PrecioCosto { get; set; }
+        public double Margen { get; set; }
+        public double IVA { get; set; }
+        public decimal PrecioBruto { get { return PrecioCosto + Convert.ToDecimal(this.Margen); } }
+        public decimal PrecioVenta { get { return PrecioBruto * Convert.ToDecimal(1 + this.IVA); } }
+        public string Proveedor { get; set; }
+        public string Categoria { get; set; }
+        public string SubCategoria { get; set; }
+
+        
+    
 
     }
 }
